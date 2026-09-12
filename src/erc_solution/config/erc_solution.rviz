@@ -7,16 +7,16 @@ Visualization Manager:
     Frame Rate: 15
   Displays:
     - Class: rviz_default_plugins/Path
-      Name: Executed trajectory (laser localization)
+      Name: Executed (laser)
       Enabled: true
       Topic:
         Value: /erc/navigation/executed
         Durability Policy: Transient Local
       Color: 0; 220; 255
-      Line Style: Lines
+      Line Style: Billboards
       Line Width: 0.04
     - Class: rviz_default_plugins/PoseArray
-      Name: Commanded targets (not a global plan)
+      Name: Targets (commanded)
       Enabled: true
       Topic:
         Value: /erc/navigation/targets
@@ -25,7 +25,7 @@ Visualization Manager:
       Shape: Arrow (Flat)
       Arrow Length: 0.4
     - Class: rviz_default_plugins/MarkerArray
-      Name: Wall model and localized laser returns
+      Name: Walls and scans
       Enabled: true
       Topic:
         Value: /erc/navigation/scene
@@ -46,6 +46,6 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/TopDownOrtho
-      Scale: 55
+      Scale: 100
       X: 1
       Y: 0

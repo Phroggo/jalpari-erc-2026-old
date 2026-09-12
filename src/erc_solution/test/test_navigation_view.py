@@ -20,6 +20,9 @@ class NavigationViewTests(unittest.TestCase):
 
     def test_target_is_the_command_not_an_invented_plan(self):
         view, messages = self.make_view()
+        anchor = messages['/tf_static'][0].transforms[0]
+        self.assertEqual(anchor.header.frame_id, 'arena')
+        self.assertEqual(anchor.child_frame_id, 'erc_navigation_display')
         view.target([2., 3.], np.pi)
         msg = messages['/erc/navigation/targets'][-1]
         self.assertEqual(msg.header.frame_id, 'arena')

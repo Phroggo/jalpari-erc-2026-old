@@ -2,10 +2,11 @@
 from collections import deque
 import math
 
-from geometry_msgs.msg import Point, Pose, PoseArray, PoseStamped
+from geometry_msgs.msg import Point, Pose, PoseArray, PoseStamped, TransformStamped
 from nav_msgs.msg import Path
 from rclpy.qos import QoSProfile, DurabilityPolicy
 from visualization_msgs.msg import Marker, MarkerArray
+from tf2_ros import StaticTransformBroadcaster
 
 from .localization import world_points
 
@@ -13,6 +14,14 @@ from .localization import world_points
 class NavigationView:
     def __init__(self, node):
         self.node = node
+        # Register the display frame without publishing a competing robot TF.
+        self.frames = StaticTransformBroadcaster(node)
+        anchor = TransformStamped()
+        anchor.header.frame_id = 'arena'
+        anchor.child_frame_id = 'erc_navigation_display'
+        anchor.header.stamp = node.get_clock().now().to_msg()
+        anchor.transform.rotation.w = 1.
+        self.frames.sendTransform(anchor)
         qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.path_pub = node.create_publisher(Path, '/erc/navigation/executed', qos)
         self.target_pub = node.create_publisher(PoseArray, '/erc/navigation/targets', qos)
