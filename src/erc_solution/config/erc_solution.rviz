@@ -3,24 +3,39 @@ Panels:
     Name: Displays
 Visualization Manager:
   Global Options:
-    Fixed Frame: base_footprint
+    Fixed Frame: arena
     Frame Rate: 15
   Displays:
-    - Class: rviz_default_plugins/TF
-      Name: TF
-      Enabled: true
-      Marker Scale: 0.4
-    - Class: rviz_default_plugins/LaserScan
-      Name: ScanFront
+    - Class: rviz_default_plugins/Path
+      Name: Executed trajectory (laser localization)
       Enabled: true
       Topic:
-        Value: /scan_front_raw
-      Size (m): 0.03
+        Value: /erc/navigation/executed
+        Durability Policy: Transient Local
+      Color: 0; 220; 255
+      Line Style: Lines
+      Line Width: 0.04
+    - Class: rviz_default_plugins/PoseArray
+      Name: Commanded targets (not a global plan)
+      Enabled: true
+      Topic:
+        Value: /erc/navigation/targets
+        Durability Policy: Transient Local
+      Color: 255; 70; 200
+      Shape: Arrow (Flat)
+      Arrow Length: 0.4
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Wall model and localized laser returns
+      Enabled: true
+      Topic:
+        Value: /erc/navigation/scene
+        Durability Policy: Transient Local
     - Class: rviz_default_plugins/Image
-      Name: Annotated
+      Name: Live RGB camera
       Enabled: true
       Topic:
-        Value: /erc/perception/annotated
+        Value: /head_front_camera/head_front_camera/color/image_raw
+        Reliability Policy: Best Effort
     - Class: rviz_default_plugins/Camera
       Name: HeadCamera
       Enabled: false
@@ -30,9 +45,7 @@ Visualization Manager:
     - Class: rviz_default_plugins/MoveCamera
   Views:
     Current:
-      Class: rviz_default_plugins/Orbit
-      Distance: 6
-      Focal Point:
-        X: 1.5
-        Y: 0
-        Z: 0.5
+      Class: rviz_default_plugins/TopDownOrtho
+      Scale: 55
+      X: 1
+      Y: 0

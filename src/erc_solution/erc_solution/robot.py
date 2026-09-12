@@ -20,6 +20,7 @@ from scipy.spatial.transform import Rotation
 from ament_index_python.packages import get_package_share_directory
 from .kinematics import Kinematics
 from .localization import WallLocalizer
+from .navigation_view import NavigationView
 
 
 class Robot(Node):
@@ -51,6 +52,11 @@ class Robot(Node):
         self.column_pub = self.create_publisher(Int32, '/erc/shelf_column_identification', 10)
         self.row_pub = self.create_publisher(Int32, '/erc/shelf_row_identification', 10)
         self.controllers = {}
+        self.navigation_view = None
+        try:
+            self.navigation_view = NavigationView(self)
+        except Exception as exc:
+            self.get_logger().warning(f'Navigation display unavailable: {exc}')
         camera = '/head_front_camera/head_front_camera/'
         self.create_subscription(Image, camera+'color/image_raw', lambda m: self.rgb_queue.append(m), qos_profile_sensor_data)
         self.create_subscription(Image, camera+'depth/image_rect_raw', lambda m: self.depth_queue.append(m), qos_profile_sensor_data)
@@ -157,6 +163,19 @@ class Robot(Node):
             points.append((p @ m[:3,:3].T+m[:3,3])[:,:2])
         if self.localizer.update(np.concatenate(points)) is not None:
             self.localization_stamp = stamp
+            if getattr(self, 'heading_initialized', False):
+                self.show_navigation('update', self.localizer.pose,
+                                     np.concatenate(points), stamp)
+
+    def show_navigation(self, method, *args):
+        """A broken optional display must not change mission control."""
+        if self.navigation_view is None:
+            return
+        try:
+            getattr(self.navigation_view, method)(*args)
+        except Exception as exc:
+            self.get_logger().warning(f'Navigation display disabled: {exc}')
+            self.navigation_view = None
 
     def wait(self, seconds):
         start, wall = self.now(), time.monotonic()
@@ -356,6 +375,7 @@ class Robot(Node):
 
     def navigate(self, xy, yaw, timeout=80.):
         """Drive towards an arena pose, stopping if laser clearance is too small."""
+        self.show_navigation('target', xy, yaw)
         start,wall = self.now(),time.monotonic()
         last_log = start
         try:

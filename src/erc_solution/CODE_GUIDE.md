@@ -12,6 +12,7 @@ The mission runs the stages in order; the other modules handle the details.
 | `erc_solution/vision.py` | Colour/depth filtering, bounding boxes and row numbering |
 | `erc_solution/perception/` | Reading marker digits with the trained model |
 | `erc_solution/recording_view.py` | Optional camera window, timer and fullscreen request |
+| `erc_solution/navigation_view.py` | Commanded targets, localized trajectory and laser/wall markers for RViz |
 | `test/test_rebuild.py` | Regression checks for perception, contact and arm geometry |
 
 Positions are in metres and angles are in radians. Check the frame before using

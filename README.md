@@ -73,10 +73,14 @@ Dependencies are declared in [`package.xml`](src/erc_solution/package.xml).
 | `kinematics.py` | Arm geometry, reachability and inverse kinematics |
 | `robot.py` | Sensor callbacks, motion execution, safety checks and evidence |
 | `recording_view.py` | Optional camera display and recording timers |
+| `navigation_view.py` | Read-only targets, localized trajectory and wall/scan overlay for RViz |
 
 Perception, planning and execution are separate modules in one mission node,
 not separate ROS processes. The included trained digit model is loaded locally;
 evaluation does not need a training step or a network service.
+
+See [RViz navigation screenshots](docs/NAVIGATION_SCREENSHOTS.md) for capturing
+commanded targets versus the executed trajectory for the report.
 
 ## Scoring outputs
 
@@ -115,7 +119,7 @@ Placement lowers into the bin in up to three 3 cm steps. Carrying motion skips
 unneeded arm repositioning when the torso lift provides enough clearance.
 These motion changes have not yet been validated in a complete trial.
 Hardware performance and physics timing can affect results. An isolated clean-container build passed
-for all 33 packages; all 30 mission regression tests and 3 recording-clock tests
+for all 33 packages; all 30 mission regression tests, 3 navigation-display tests and 3 recording-clock tests
 passed. These checks do not replace a full simulation trial.
 
 ## Simulator baseline and credits
