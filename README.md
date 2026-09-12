@@ -114,7 +114,9 @@ book/bin contact is not proof of gentle-placement scoring.
 The latest changes lower into the bin in up to three 3 cm steps and shorten
 carrying-pose motion. They need a full trial before the final video; historical
 stress-test results do not validate these latest changes. Hardware performance
-and physics timing can affect results. See [verification](SUBMISSION_VERIFICATION.md).
+and physics timing can affect results. An isolated clean-container build passed
+for all 33 packages; all 30 mission regression tests and 3 recording-clock tests
+passed. These checks do not replace a full simulation trial.
 
 ## Provenance
 

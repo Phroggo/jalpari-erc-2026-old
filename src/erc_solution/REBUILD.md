@@ -1,7 +1,7 @@
 # Build and run — 11 September 2026
 
-See [submission verification](../../SUBMISSION_VERIFICATION.md) for the pinned
-official baseline, current test results and limitations.
+See the [repository README](../../README.md) for the pinned official baseline,
+current test results and limitations.
 
 From the repository root on the host:
 

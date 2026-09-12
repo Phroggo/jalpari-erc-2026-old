@@ -8,8 +8,8 @@ The active solution is now `erc_solution.mission`, launched with:
 ros2 launch erc_solution solution.launch.py shelf_column_number:=2 book_colour:=red
 ```
 
-See [the build instructions](src/erc_solution/REBUILD.md) and
-[submission verification](SUBMISSION_VERIFICATION.md) for the official baseline,
+See [the build instructions](../src/erc_solution/REBUILD.md) and
+[repository README](../README.md) for the official baseline,
 fresh-container results and limitations. The submitted source tree excludes
 abandoned simulator-control experiments. Git history retains earlier revisions;
 historical experiments are not evidence for the current physical-grasp solution.
