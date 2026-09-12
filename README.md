@@ -117,7 +117,8 @@ book/bin contact is not proof of gentle-placement scoring.
 
 Placement lowers into the bin in up to three 3 cm steps. Carrying motion skips
 unneeded arm repositioning when the torso lift provides enough clearance.
-These motion changes have not yet been validated in a complete trial.
+One separate column-2/yellow report trial completed with matching book/bin
+contact after these motion changes; this is not a multi-layout reliability study.
 Hardware performance and physics timing can affect results. An isolated clean-container build passed
 for all 33 packages; all 30 mission regression tests, 3 navigation-display tests and 3 recording-clock tests
 passed. These checks do not replace a full simulation trial.
