@@ -120,6 +120,12 @@ passed. These checks do not replace a full simulation trial.
 
 ## Simulator baseline and credits
 
+Team Jalpari contributors:
+
+- [gloriap05](https://github.com/gloriap05)
+- [aar4n](https://github.com/aar4n)
+- [Unfluctuating](https://github.com/Unfluctuating)
+
 The included simulator sources use the public
 [ERC competition baseline](https://github.com/dfl-rlab/erc_sim_2026/tree/68e175fada5b8115b0f7bbb0e9b2b08a96504f22).
 All source packages and the trained model needed to build and run the solution
