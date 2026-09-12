@@ -1,0 +1,25 @@
+# ROS 2 / colcon build output (generated inside the Docker container)
+build/
+install/
+log/
+.colcon_install_layout
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Vendored upstream CI (don't run these workflows on this repo)
+**/.github/workflows/
+
+# Trial evidence stays local unless deliberately added for the submitted video.
+/erc_images/*
+!/erc_images/.gitkeep
+!/erc_images/README.md

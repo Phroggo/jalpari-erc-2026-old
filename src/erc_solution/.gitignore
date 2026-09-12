@@ -1,0 +1,16 @@
+# build artifacts
+__pycache__/
+*.pyc
+build/
+install/
+log/
+
+# regenerable training data
+training/dataset.npz
+
+# annotated images produced at runtime (keep the folder, not its contents)
+erc_images/*
+!erc_images/.gitkeep
+
+# keep the trained model
+!models/digit_mlp.npz
