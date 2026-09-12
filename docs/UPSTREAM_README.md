@@ -1,28 +1,24 @@
 # Jalpari — Emirates Robotics Competition 2026
 
-## Rebuilt solution (11 September 2026)
+## Solution launch
 
-The active solution is now `erc_solution.mission`, launched with:
+The solution entry point is `erc_solution.mission`, launched with:
 
 ```bash
 ros2 launch erc_solution solution.launch.py shelf_column_number:=2 book_colour:=red
 ```
 
 See [the build instructions](../src/erc_solution/REBUILD.md) and
-[repository README](../README.md) for the official baseline,
-fresh-container results and limitations. The submitted source tree excludes
-abandoned simulator-control experiments. Git history retains earlier revisions;
-historical experiments are not evidence for the current physical-grasp solution.
+[repository README](../README.md) for the simulator baseline, setup and test results.
 
 With the workspace built and the container running, use `./run_sim.sh headless`
 and then `./run_solution.sh 2 red` in a second terminal. Both wrappers default to
 ROS domain 23; set `ROS_DOMAIN_ID` identically in both terminals to override it.
-Run only one solution instance. Do not start legacy gravity-compensation,
-effort-switching or book-attachment nodes alongside the rebuilt solution.
+Run only one solution instance.
 
 Library Assistant Robot challenge: Autonomous book retrieval using a TIAGo Pro mobile manipulator.
 
-<img src="docs/assets/erc_3d_env.png" width="300"/> <img src="docs/assets/tiago_pro.png" width="200"/>
+<img src="assets/erc_3d_env.png" width="300"/> <img src="assets/tiago_pro.png" width="200"/>
 
 ## Prerequisites
 
@@ -229,7 +225,7 @@ The robot URDF is generated from PAL's xacro sources with Gazebo Harmonic patche
 
 If you notice a bug, an error in the documentation, or anything in the code that needs changing, please submit an issue on the repository rather than reporting it elsewhere. This keeps all known issues visible and traceable for both participants and organisers.
 
-<img src="docs/assets/issue_submission.png" width="500"/>
+<img src="assets/issue_submission.png" width="500"/>
 
 1. In the "Title" field, type a title for your issue.
 2. In the comment body field, type a description of your issue. To cross-reference a related discussion, paste the discussion's URL into the issue description.

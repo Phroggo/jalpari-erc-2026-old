@@ -25,5 +25,4 @@ Neither directory is imported by the mission. Use the launch file for a complete
 trial.
 
 Comments explain why a check or offset is needed. Keep them short, keep units and
-frames clear, and update them whenever behavior changes. Organizer and vendored
-packages are outside this team's comment/style cleanup.
+frames clear, and update them whenever behavior changes.

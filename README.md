@@ -111,20 +111,17 @@ rechecked; most persistent failures abort rather than automatically regrasp or
 replan. Collision checks are not a proof of collision-free motion. A matching
 book/bin contact is not proof of gentle-placement scoring.
 
-The latest changes lower into the bin in up to three 3 cm steps and shorten
-carrying-pose motion. They need a full trial before the final video; historical
-stress-test results do not validate these latest changes. Hardware performance
-and physics timing can affect results. An isolated clean-container build passed
+Placement lowers into the bin in up to three 3 cm steps. Carrying motion skips
+unneeded arm repositioning when the torso lift provides enough clearance.
+These motion changes have not yet been validated in a complete trial.
+Hardware performance and physics timing can affect results. An isolated clean-container build passed
 for all 33 packages; all 30 mission regression tests and 3 recording-clock tests
 passed. These checks do not replace a full simulation trial.
 
-## Provenance
+## Simulator baseline and credits
 
-This clean submission snapshot is based on Gloria's
-[`gloriap05/erc`](https://github.com/gloriap05/erc) `final_code` branch at
-`064bf93ca5c33700b2a7deba14942e7acc7b007d`, plus Jalpari's local timing,
-placement, recording and documentation changes. Original contributor metadata
-and vendored license notices are retained. Organizer runtime sources are from
-`dfl-rlab/erc_sim_2026` commit `68e175fada5b8115b0f7bbb0e9b2b08a96504f22`.
-This repository name identifies our team; no prescribed repository-name pattern
-was found in the supplied Phase 1 rulebook.
+The included simulator sources use the public
+[ERC competition baseline](https://github.com/dfl-rlab/erc_sim_2026/tree/68e175fada5b8115b0f7bbb0e9b2b08a96504f22).
+All source packages and the trained model needed to build and run the solution
+are included here; no private repository access is required. Contributor credits
+and third-party license notices are retained in the package files.

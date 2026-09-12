@@ -19,7 +19,7 @@ ros2 launch erc_solution solution.launch.py shelf_column_number:=2 book_colour:=
 `shelf_column_number` (1–5) is the **digit printed on the marker**, not a
 fixed physical position — the marker permutation is randomised every launch,
 so the robot locates it visually. `book_colour` ∈ {red, green, blue, yellow}.
-See [REBUILD.md](REBUILD.md) for build/setup detail and verification history.
+See [REBUILD.md](REBUILD.md) for build and launch instructions.
 See [CODE_GUIDE.md](CODE_GUIDE.md) for the file layout and coordinate frames.
 
 ## Architecture
