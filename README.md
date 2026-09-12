@@ -122,6 +122,7 @@ passed. These checks do not replace a full simulation trial.
 
 Team Jalpari contributors:
 
+- [Phroggo](https://github.com/Phroggo)
 - [gloriap05](https://github.com/gloriap05)
 - [aar4n](https://github.com/aar4n)
 - [Unfluctuating](https://github.com/Unfluctuating)
